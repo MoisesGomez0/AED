@@ -1,0 +1,57 @@
+<meta charset="utf-8">
+<script>
+    function Node(name)
+    {
+        this.name = name;
+        this.next = null;
+    }
+
+    function LinkedList() 
+    {
+        this.first = null;
+        this.add= LinkedListAdd;
+        this.print=LinkedListPrint;
+    }
+        function LinkedListAdd(node) 
+        {
+        if (!this.first) 
+        {
+            this.first = node;
+        }
+        else 
+        {
+            temporalNode = this.first;
+            while (temporalNode.next) {
+
+                temporalNode = temporalNode.next;
+            }
+            temporalNode.next = node;
+        }
+        }
+        function LinkedListPrint()
+        {
+            
+            node=this.first;
+            while(node.next)
+            {
+                console.log(node.name);
+                node=node.next;
+            }
+            console.log(node.name);
+        }
+
+    nodo1 = new Node("Nodo 1");
+    nodo2 = new Node("Nodo 2");
+    nodo3 = new Node("Nodo 3");
+    nodo4 = new Node("Si se pudo alv!");
+
+    lista = new LinkedList;
+
+    lista.add(nodo1);
+    lista.add(nodo2);
+    lista.add(nodo3);
+    lista.add(nodo4);
+    
+    lista.print();
+    
+</script>
