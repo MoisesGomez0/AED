@@ -1,57 +1,58 @@
 <meta charset="utf-8">
 <script>
-    function Node(name)
+    function Node(name)//creamos la clase nodo, esta recibe el nombre del nodo
     {
-        this.name = name;
+        this.name = name;//creamos una variable privada y le asignamos el nombre del nodos que se recibe en el parametro
         this.next = null;
     }
-
-    function LinkedList() 
+    function LinkedList() //creamos la clase lista enlazada
     {
-        this.first = null;
-        this.add= LinkedListAdd;
-        this.print=LinkedListPrint;
+        this.first = null;//creamos una variable privada que será el primer elemento de la lista
+        this.add= LinkedListAdd;//Esta función está definida mas abajo
+        this.print=LinkedListPrint;//Esta función está definida mas abajo
     }
-        function LinkedListAdd(node) 
+        function LinkedListAdd(node) /*Esta funcion es usada por la lista para enlazar un nuevo elemento al último de la lista
+        este nuevo nodo es recibido como parámetro*/
         {
-        if (!this.first) 
+        if (!this.first) //si la lista no tiene primero
         {
-            this.first = node;
+            this.first = node;//es asignado al primero el nodo que se paso por parámetro
         }
-        else 
+        else //si la lista ya tiene un primero
         {
-            temporalNode = this.first;
-            while (temporalNode.next) {
-
-                temporalNode = temporalNode.next;
+            temporalNode = this.first;//se crea una variable temporal que actua como el primero de la lista
+            while (temporalNode.next)//si la variable temporal tiene un siguiente
+            {
+                temporalNode = temporalNode.next;//a la variable temporal se le asigna el siguiente de la variable temporal
+                //esto se repite hasta que la variable temporal ya no tenga siguiente
             }
-            temporalNode.next = node;
+            temporalNode.next = node;//al ya no tener siguiente a este le se asigna el nodo que fue pasado por parámetro
         }
         }
-        function LinkedListPrint()
+        function LinkedListPrint()//Esta función es usada por la lista para imprimir el nombre de todos los nodos en orden de enlazado
         {
             
-            node=this.first;
-            while(node.next)
+            node=this.first;//se crea una variable temporal que se que asigna el primero de la lista
+            while(node.next)//si el nodo temporal tiene siguiente entonces
             {
-                console.log(node.name);
-                node=node.next;
+                console.log(node.name);//se imprime el nombre de el nodo temporal
+                node=node.next;//el nodo temporal pasa a ser el siguiente del nodo temporal
+                //esto se repite hasta que el nodo temporal ya no tenga siguiente
             }
-            console.log(node.name);
+            console.log(node.name);//se imprime el nombre del nodo que no tiene siguiente
         }
-
+    //creamos 4 objetos de tipo Node
     nodo1 = new Node("Nodo 1");
     nodo2 = new Node("Nodo 2");
     nodo3 = new Node("Nodo 3");
-    nodo4 = new Node("Si se pudo alv!");
-
-    lista = new LinkedList;
-
+    nodo4 = new Node("Nodo 4");
+    //creamos 1 objeto de tipo LinkedList 
+    lista = new LinkedList();
+    //Usando el metodo add definido en la funcion LinkedListAdd añadimos uno a uno de los nodos lo enlaces el siguiente nodo
     lista.add(nodo1);
     lista.add(nodo2);
     lista.add(nodo3);
     lista.add(nodo4);
-    
+    //usando el método print definido el la función LinkedListPrint imprimimos el nombre de todos los nodos en orden
     lista.print();
-    
 </script>
