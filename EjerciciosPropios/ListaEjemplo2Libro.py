@@ -11,5 +11,5 @@ lista.add(4)
 lista.showInColose()
 print()
 
-lista.purge()
-lista.showInColose()
+newLista = lista.purge()
+newLista.showInColose()

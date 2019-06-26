@@ -64,7 +64,7 @@ class LinkedList():
                     current = current.next
                     previous = previous.next
 #Elimina todos los nodos repetidos dejando solo el primer nodo que tenga tal valor
-    def purge(self):
+    def purgeSelf(self):
         test = self.first
         current = test.next
         previous = test
@@ -80,4 +80,24 @@ class LinkedList():
             if test:
                 current = test.next
                 previous = test
-    
+
+    def purge(self):
+        newList = LinkedList()
+        newList.first = self.first
+        test = newList.first
+        current = test.next
+        previous = test
+        while test:
+            while current:
+                if test.value == current.value:
+                    previous.next = previous.next.next
+                    current = previous.next
+                else:
+                    previous = previous.next
+                    current = current.next
+            test = test.next
+            if test:
+                current = test.next
+                previous = test
+            else:
+                return newList

@@ -9,4 +9,4 @@ class Executor():
             for j in i:
                 if len(j) == 4 :
                     if j[:2] == "01":
-                        
+                        pass
