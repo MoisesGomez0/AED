@@ -9,6 +9,7 @@ lista.add(1)
 lista.add(4)
 
 lista.showInColose()
+lista.purgeSelf()
 print()
 
 newLista = lista.purge()

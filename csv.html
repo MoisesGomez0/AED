@@ -1,0 +1,11 @@
+<script src="csv.js"></script>
+<script src="random.js"></script>
+<script>
+csv = new CSV();
+content = csv.generateRandomCSV();
+console.group("Este es el nombre del grupo")
+console.log(content)
+console.groupEnd();
+document.write(content)
+
+</script>

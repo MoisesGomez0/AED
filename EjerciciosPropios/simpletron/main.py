@@ -1,8 +1,13 @@
 from Memory import *
-from Writer import *
 from Reader import *
 from Executor import *
 
 memory = Memory()
-ejecutor = Executor(memory)
-ejecutor.executor()
+reader = Reader(memory)
+executor = Executor(memory)
+memory.consolePrintMemory()
+reader.launch()
+memory.consolePrintMemory()
+executor.executor()
+memory.consolePrintMemory()
+memory.consolePrintBuffer()

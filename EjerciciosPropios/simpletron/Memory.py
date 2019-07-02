@@ -14,7 +14,7 @@ class Memory():
         #Este metodo cambia un valor de la posicion ij por data
         self.memory[i][j] = data
     def getBuffer(self):
-        return buffer
+        return self.buffer
     def consolePrintBuffer(self):
         print(self.buffer)
     def changeBuffer(self,data):

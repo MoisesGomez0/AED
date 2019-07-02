@@ -4,7 +4,12 @@ class Reader():
 
     def inputInstruction(self,count_i,count_j):
         value = input("Escribe la instruccion que se guarda en la posicion ["+str(count_i)+"]["+str(count_j)+"]: ")
-        if len(value) < 3 and value !="-1":
+        if (len(value) < 3 or len(value)>4) and value !="-1":
+            print("La instruccion escrita es invalida")
+            return "_"
+        try:
+            integer = int(value)
+        except:
             print("La instruccion escrita es invalida")
             return "_"
         return value
@@ -24,6 +29,11 @@ class Reader():
             self.memory.consolePrintMemory()
             value = self.inputInstruction(count_i,count_j)
     
-    def defInstruction(self,data,i,j):
-        self.memory.writeInMemory(data,i,j)
-
+    def inputData(self):
+        while True:
+            try:
+                value = input("Ingrese el dato: ")
+                integer = int(value)
+                return value
+            except:
+                print("No podimos procesar el dato de que u")

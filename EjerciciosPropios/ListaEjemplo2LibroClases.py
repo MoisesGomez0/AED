@@ -46,7 +46,7 @@ class LinkedList():
                 else:
                     current = current.next
                     previous = previous.next
-#Elimina el primer nodo que tenga como valir el parámetro value
+#Elimina el primer nodo que tenga como valor el parámetro value
     def deleteFirst(self,value):
         current = self.first
         previous = self.first
@@ -88,6 +88,7 @@ class LinkedList():
         current = test.next
         previous = test
         while test:
+
             while current:
                 if test.value == current.value:
                     previous.next = previous.next.next
@@ -101,3 +102,32 @@ class LinkedList():
                 previous = test
             else:
                 return newList
+#Ese método retorna el primer nodo
+    def getFirst(self):
+        return self.first
+#Retornar el último nodo
+    def getLast(self):
+        temp = self.first
+        while(temp.next):
+            temp = temp.next
+        return temp
+#Añade un nodo en la posición que tenga como número el valor n
+    def addInPosition(self,value,n):
+        if(n == 0):
+            temp = self.first
+            self.first = Node(value)
+            self.firt.next = temp
+            return True
+        elif(n>1):
+            count = 0
+            temp = self.first
+            tempPre = self.first
+            while(temp.next):
+                temp = temp.next
+                count+=1
+                if(count == n):
+                    tempPre.next = Node(value)
+                    (tempPre.next).next = temp
+                    return True
+                tempPre = tempPre.next
+        return False
