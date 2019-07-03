@@ -7,10 +7,10 @@ function CSV(){
         for(i=0;i<r;i++){
             columns = [];
             c = random2int();
-            for(j=0;j<50;j++){
+            for(j=0;j<c;j++){
                 columns.push(random2int());
             }
             rows.push(columns.join(","));
         }
-        return rows.join("<br><br><br>");
+        return rows.join("<br><br>");
     }
