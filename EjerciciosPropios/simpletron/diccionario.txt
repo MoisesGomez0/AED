@@ -1,0 +1,17 @@
+01ij sobrescribe el buffer con lo que hay en la posición ij
+02ij lee de stdin y lo guarda en ij
+03ij suma lo que está en ij con el buffer y lo sobrescribe en el
+04ij le resta al buffer ij
+05ij multiplica lo que está en ij con el buffer y lo sobrescribe en el
+06ij divide el buffer entre ij  
+07ij sobrescribe el dato de la posición ij por "_"
+08ij muestra en pantalla el dato que hay en ij
+09ij guarda lo que está en el buffer en ij
+sumar 2 números
+
+0210
+0211
+0110
+0311
+0912
+0812
