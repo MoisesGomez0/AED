@@ -1,0 +1,79 @@
+<meta charset="utf-8">
+<script>
+    data = [
+        [1, 2, 3, 4],
+        [1, 2],
+        [1, 2, 3],
+        [1, 2, 3, 4, 5],
+        [1, 2, 3, 4, 5, 6, 7, 8],
+
+    ];
+
+    function htmlData(data) {
+        html = "<table border='1'>";
+        for (i = 0; i < data.length; i++) {
+            html += "<tr>";
+            for (j = 0; j < data[i].length; j++) {
+                html += "<td>" + data[i][j] + "</td>";
+            }
+            html += "</tr>";
+        }
+        html += "</table>";
+        return html;
+    }
+
+    function htmlData2(data) {
+        html = "<table border='1'>";
+        for (i = 0; i < data.length; i++) {
+            html += "<tr>";
+            for (j = 0; j < data[i].length; j++) {
+                html += `<td>${data[i][j]}</td>`;
+            }
+            html += "</tr>";
+        }
+        html += "</table"
+        return html;
+    }
+
+    function htmlData3(data) {
+        html = "<table border='1'>";
+        for (i = 0; i < data.length; i++) {
+            html += "<tr>";
+            html += "<td>" + data[i].join("</td><td>") + "</td>"
+            html += "</tr>";
+        }
+        html += "</table"
+        return html;
+    }
+
+    function htmlData4(data) {
+        html = "<table border='1'>";
+        max = 0;
+        for (k = 0; k < data.length; k++) {
+            if (data[k].length > max) {
+                max = data[k].length;
+            }
+        }
+        for (i = 0; i < data.length; i++) {
+            html += "<tr>";
+            for (j = 0; j < data[i].length; j++) {
+                if (data[i].length >= max) {
+                    html += `<td>${data[i][j]}</td>`;
+                } else {
+                    if (j < data[i].length - 1) {
+                        html += `<td>${data[i][j]}</td>`;
+                    } else {
+                        html += `<td colspan=${(max - data[i].length) + 1}>${data[i][j]}</td>`;
+                    }
+                }
+            }
+            html += "</tr>";
+        }
+        html += "</table>";
+        return html;
+    }
+
+
+    document.write(htmlData4(data));
+
+</script>

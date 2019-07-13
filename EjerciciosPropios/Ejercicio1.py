@@ -27,7 +27,7 @@ while value > 0:
     elif value >= 1:
         billetes.append(1)
         value -= 1
-
+print(billetes)
 if billetes.count(500) > 0:
     print(billetes.count(500), "Billetes de 500")
 if billetes.count(100) > 0:
