@@ -1,8 +1,15 @@
+#-*- coding: utf-8 -*-
 class Node():
     def __init__(self,value):
         self.value = value
         self.next = None
 
+def JoinLists(list1,list2):
+    listToReturn = LinkedList()
+    listToReturn.first = list1.getFirst()
+    listToReturn.getLast().next = list2.getFirst()
+    return listToReturn
+    
 class LinkedList():
     def __init__(self):
         self.first = None
@@ -23,7 +30,7 @@ class LinkedList():
                 current = current.next
             current.next = Node(value)
 #Retorna el primer nodo con valor igual al parametro value
-    def find(self,value):
+    def search(self,value):
         current = self.first
         while current:
             if current.value == value:
@@ -131,3 +138,32 @@ class LinkedList():
                     return True
                 tempPre = tempPre.next
         return False
+
+#Une la linkedList que es dada como parámetro al final de la lista
+    def join(self,linkedList):
+        current = self.first
+        while(current.next):
+            current = current.next
+        current.next = linkedList.first
+
+#Esta función añade un nuevo nodo item despues del valor value
+    def addAfter(self,item,value):
+        current = self.first
+        while current:
+            if current.value == value:
+                after = current.next
+                current.next = Node(item)
+                current.next.next = after
+                return True
+            else:
+                current = current.next
+        return False
+#Esta función cuenta cuantos nodos con valor igual a value
+    def count(self,value):
+        counter = 0
+        current = self.first
+        while current:
+            if current.value == value:
+                counter+=1
+            current = current.next
+        return counter

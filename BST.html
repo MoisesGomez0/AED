@@ -1,0 +1,69 @@
+<!-- Un BST(binary search tree) o ABB(árbol binario de busqueda) es una estructura de datos
+    donde existe un nodo principal llamado root y este tiene la capacidad de tener
+    dos nodos hijos como máximo, los nodos que no tienen hijos se les llama left (hojas)-->
+<!-- En este ejemplo los números menores son agregados a la derecha, y los mayores a la 
+    izquierda -->
+<meta charset="utf-8">
+<script>
+    function Node(value){
+        this.value = value;
+        this.rigth = null;
+        this.left = null;
+    }
+    function BST(){
+        this.root = null;
+        this.add = BSTAdd;
+        this.search = BSTSearch;
+    }
+        function BSTSearch(value,current = this.root){
+            if(!current){
+                return false;
+            }else if(current.value == value){
+                return true;
+            }else if(current.value < value){
+                return this.search(value,current.rigth);
+            }else if(current.value > value){
+                return this.search(value,current.left);
+            }else false;
+        }
+        function BSTAdd(item, current = this.root){
+            //Esta función añade un elemento al árbol
+            if(!this.root){//si existe un current este es el nuevo elemento
+                this.root = new Node(item);
+                return true;
+            }else{//si ya existe
+                if(item<current.value){//si el valor es menor que el valor que tiene el current
+                    if(!current.left){//si no tiene un izquierdo este será el nuevo current
+                        current.left = new Node(item);
+                        return true;
+                    }else{//si no, se llama recursivamente a la misma función que añade
+                    //y el nuevo current es igual a izquierdo del current actual
+                        return this.add(item,current.left);
+                    }
+                }else if(item>current.value){// si el valor es mayor que el valor que tiene el current
+                    if(!current.rigth){//si no existe un derecho, este será el nuevo valor
+                        current.rigth = new Node(item);
+                        return true
+                    }else{//si no, se llama recursivamente a la misma función que añade
+                    //y el nuevo current es igual a derecho del current actual
+                        return this.add(item,current.rigth)
+                    }
+                }
+            }
+            //Si no ocurre ninguna de la anteriores ocurrió un error
+            return false;
+        }
+
+arbol = new BST();
+arbol.add(4);
+arbol.add(73);
+arbol.add(1);
+arbol.add(22);
+arbol.add(45);
+arbol.add(3);
+arbol.add(12);
+arbol.add(3);
+search = 12;
+console.log(`El elemento ${search} se encuentra en la lista?: ${arbol.search(search)}`);
+
+</script>
