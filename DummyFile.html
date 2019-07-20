@@ -1,0 +1,18 @@
+<meta charset="utf-8">
+<script src="Paragraph.js"></script>
+<script src="Sentence.js"></script>
+<script src="Word.js"></script>
+<script src="random.js"></script>
+<script>
+    Npages = random2int(1,100)
+    var sentence = new Sentence();
+    var paragraph = new Paragraph();
+    for(let j=0; j<Npages; j++){
+        document.write(`${sentence.randomTittle()}<br>`);
+        var Nparagraph = random2int(2,100);
+        for(let k=0; k<Nparagraph; k++){
+            document.write(`${paragraph.random()}<br>`);
+        }
+        document.writeln("<br>");
+    }
+</script>
