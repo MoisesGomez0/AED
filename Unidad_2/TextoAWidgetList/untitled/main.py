@@ -1,15 +1,23 @@
-# This Python file uses the following encoding: utf-8
-import sys
-from PySide2.QtWidgets import QApplication, QMainWindow
+from form_ui import *
+from PyQt5.QtGui import QIcon
 
-
-class MainWindow(QMainWindow):
+class MainWindow(QtWidgets.QMainWindow,Ui_Form):
     def __init__(self):
-        QMainWindow.__init__(self)
+        QtWidgets.QMainWindow.__init__(self)
+        self.setupUi(self)
+        self.ImportData.clicked.connect(self.importData)
+        self.ImportData.setIcon(QIcon("icono.ico"))
 
+    def importData(self):
+        f = open("Archivo.tsv","r")
+        content = f.read()
+        content = content.split("\n")
+        for i in content:
+            item = QtWidgets.QListWidgetItem(QIcon("icono.ico"),i)
+            self.list.addItem(item)
 
 if __name__ == "__main__":
-    app = QApplication([])
+    app = QtWidgets.QApplication([])
     window = MainWindow()
     window.show()
-    sys.exit(app.exec_())
+    app.exec_()
