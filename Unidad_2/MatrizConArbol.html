@@ -1,0 +1,38 @@
+<meta charset="utf-8">
+<script>
+    n = parseInt(prompt("Ingrese el tamaño"))
+    h = 2*n+1
+    document.write("<table align='center'>")
+    for(let i=0; i<=n;i++){
+        document.write("<tr>")
+        for(let j=0; j<h; j++){
+            if(!(j>Math.floor(h/2)+i || j<Math.floor(h/2)-i) && j != Math.floor(h/2)){
+                document.write("<td>")
+                document.write("*")
+                document.write("</td>")
+            }else if (!(i==0 && j==Math.floor(h/2))){
+                document.write("<td>")
+                document.write("&nbsp;")
+                document.write("</td>")
+            }else{
+                document.write("<td>")
+                document.write("*")
+                document.write("</td>")    
+            }
+        }
+        document.write("</tr>")
+    }
+    for(let i=0; i<=n-1; i++){
+        document.write("<tr>")
+        for(let j=0; j<h; j++){
+            document.write("<td>")
+            if(j==Math.floor(h/2)){
+                document.write("*")
+            }else{
+                document.write("&nbsp;")
+            }document.write("</td>")
+        }
+        document.write("</tr>")
+    }
+    document.write("</table>")
+</script>
