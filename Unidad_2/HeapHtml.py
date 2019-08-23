@@ -22,29 +22,29 @@ class Heap:
 
     def makeHtml(self):
         html = []
-        primerapos = self.w//2
-        e = primerapos
-        up = -1500
+        firstPost = self.w//2
+        spaces = firstPost
+        lastPost = -1500
         index = 0
         cant = 0
         html.append("<table align='center'>")
         for i in range(self.h):
             html.append("<tr>")
             for j in range(self.w):
-                if j == primerapos:
+                if j == firstPost:
                     html.append("<td>%s</td>"%self.linkedlist.getValueIndex(index))
                     index += 1
                     cant += 1
-                elif (j == primerapos+e+1 or up+e+1 == j) and cant <= 2**i and index<self.n:
-                    up = j
+                elif (j == firstPost+spaces+1 or lastPost+spaces+1 == j) and cant <= 2**i and index<self.n:
+                    lastPost = j
                     html.append("<td>%s</td>"%self.linkedlist.getValueIndex(index))
                     index += 1
                     cant +=1
                 else:
                     html.append("<td>&nbsp</td>")
             html.append("</tr>")
-            e = primerapos
-            primerapos = primerapos//2
+            spaces = firstPost
+            firstPost = firstPost//2
             cant = 0
         html.append("</table")
         return "".join(html)
