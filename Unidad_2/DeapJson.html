@@ -1,0 +1,40 @@
+<meta charset="utf-8">
+<script>
+    json = {"root":{
+        "archivo1":{
+            "type":"file",
+            "size":804,
+            "author":"Grupo niche",
+            "extension":"mp3",
+            "date":"2019/05/44"
+        },
+        "archivo1/":{
+            "type":"folder",
+            "size":4,
+            "user":"mg",
+            "children":{
+                    "archivo1":{
+                "type":"file",
+                "size":804,
+                "author":"Grupo niche",
+                "extension":"mp3",
+                "date":"2019/05/44"
+                }   
+            }
+        }
+    }
+}
+    function deep(json){
+        for(i in json){
+            if(typeof(json[i])=="object"){
+                console.group(i);
+                deep(json[i]);
+                console.groupEnd();
+            }
+            else{
+                console.log(`${i}:${json[i]}`)
+            }
+        }
+    }
+deep(json)
+</script>
