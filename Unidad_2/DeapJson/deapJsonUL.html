@@ -1,0 +1,45 @@
+<meta charset="utf-8">
+<script>
+    function deep(json){
+        document.write("<ul>");
+            for(i in json){
+                if(typeof(json[i])=="object"){
+                    document.write(`<li>${i}`);
+                    deep(json[i])
+                    document.write("</li>")
+                }else{
+                    document.write("<li>")
+                    document.write(`${i}:${json[i]}`)
+                    document.write("</li>")
+                }
+            }
+        document.write("</ul>");
+    }
+
+    json = {"root":{
+        "archivo1":{
+            "type":"file",
+            "size":804,
+            "author":"Grupo niche",
+            "extension":"mp3",
+            "date":"2019/05/44"
+        },
+        "archivo1/":{
+            "type":"folder",
+            "size":4,
+            "user":"mg",
+            "children":{
+                    "archivo1":{
+                "type":"file",
+                "size":804,
+                "author":"Grupo niche",
+                "extension":"mp3",
+                "date":"2019/05/44"
+                    }      
+                }
+            }
+        }
+    }
+    deep(json)
+
+</script>
