@@ -31,7 +31,8 @@ class NoDirGraph:
             self.json[vertex1].append(vertex2)
         if not vertex1 in self.json[vertex2]:
             self.json[vertex2].append(vertex1)
-
+    def __str__(self):
+        return str(self.json)
 G = NoDirGraph()
 G.addVertex("A")
 G.addVertex("B")
